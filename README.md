@@ -201,7 +201,7 @@ server.listen(3000);
     </script>
 ```
 
-## loaction.hash + iframe   
+## 九、loaction.hash + iframe   
 > url的长度是有限制的，所以不能传太多东西
 > 
 > 基本不会用这个
