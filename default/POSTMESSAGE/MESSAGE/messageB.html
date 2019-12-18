@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>postMessage - MessageB</title>
+</head>
+<body>
+    <h1>postMessage - MessageB</h1>
+    <script>
+        // 监听A发送过来的信息
+        window.onmessage = (ev) => {
+            console.log(ev.data)
+            // ev.source代表A页面
+            ev.source.postMessage('我是B页面返回的数据', ev.origin)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>socket</title>
+</head>
+<body>
+    <button>点击向服务端发送数据</button>
+    <script src="https://cdn.bootcss.com/socket.io/2.3.0/socket.io.dev.js"></script>
+    <script>
+        let socket = io('http://localhost:3000');
+        socket.on('connect', () => {
+            console.log('连接成功！');
+        });
+        socket.on('one', msg => { // 监听的这个方法主要和后端对应上即可，否则无效
+            console.log('服务端one返回的数据msg数据：' + msg);
+        });
+        socket.on('two', msg => { // 监听的这个方法主要和后端对应上即可，否则无效
+            console.log('服务端two返回的数据msg数据：' + msg);
+        });
+        socket.on('three', msg => { // 监听的这个方法主要和后端对应上即可，否则无效
+            console.log('服务端three返回的数据msg数据：' + msg);
+        });
+        socket.on('disconnect', () => {
+            console.log('server socket has closed!')
+        });
+        let num = 1;
+        // 点击的时候向服务端发送数据
+        document.querySelector('button').onclick = () => {
+            num ++ ;
+            socket.emit('three', num);
+        };
+    </script>
+</body>
+</html>

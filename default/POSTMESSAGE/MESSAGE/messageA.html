@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>postMessage - MessageA</title>
+</head>
+<body>
+    <h1>postMessage - MessageA</h1>
+    <iframe src="http://localhost:1002/MESSAGE/messageB.html" id='iframe' frameborder="0" style="display:none"></iframe>
+    <script>
+        iframe.onload = () => {
+            iframe.contentWindow.postMessage('我是A页面', 'http://localhost:1002/');
+            // 反监听B页面返回给A页面的数据
+            window.onmessage = (ev) => {
+                console.log(ev.data);
+                // ev.source代表A页面
+            }
+        }
+
+    </script>
+</body>
+</html>

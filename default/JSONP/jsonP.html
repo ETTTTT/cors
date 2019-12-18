@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jsonP解决跨域问题</title>
+</head>
+<body>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <!-- jquery方式  callback函数参数固定 -->
+    <!-- <script src="./jsonP.js"></script> -->
+    <!-- script请求  参数可以自定义 -->
+    <script>
+        const data = res => {
+            console.log(res)
+        }
+    </script>
+    <script src="http://localhost:3000/list?cb=data"></script>
+</body>
+</html>

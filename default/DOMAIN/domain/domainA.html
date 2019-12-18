@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>document.domainA</title>
+</head>
+<body>
+    <h1>document.domainA</h1>
+    <a href="http://www.example.com:1001/domain/domainA.html"></a>
+    <iframe src="http://sub.example.com:1002/domain/domainB.html" id='iframe' frameborder="0" style="display:none"></iframe>
+    <script>
+        document.domain = 'example.com';
+        var test = '我是www.example.com下面的数据'; // 必须使用var定义参数 window.test = '我是www.example.com下面的数据'
+        // const a = '我是www.example.com下面的数据'; // window.a = undefined;
+        // let b = '我是www.example.com下面的数据'; // window.b = undefined;
+    </script>
+</body>
+</html>
